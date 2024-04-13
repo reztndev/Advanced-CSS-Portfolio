@@ -1,3 +1,7 @@
+html {
+  scroll-behavior: smooth;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -9,10 +13,30 @@ body {
 
 header {
   padding: 40px;
-  /*text-align: center;*/
-  text-align: left;       /* Changed text-aligh to left */
+  text-align: left;       
   background: #13293d;
   color: #fff;
+}
+
+/* Using flex property to make the container flexible */
+nav {
+  display: flex;
+  justify-content: end;
+  background-color: #d8a47f;
+}
+
+/* Place the navigational items on the right and make them stand out */
+nav a {
+  padding: 14px 20px;
+  text-decoration: none;
+  text-align: right;
+  font-size: large;
+  font-weight: bold;
+  color: #13293d;
+}
+
+main {
+  display: flex;
 }
 
 .about-label {
@@ -27,137 +51,23 @@ header {
   flex: 0 0 100px;
 }
 
-/* 
-What happens when we set the display property to flex?
-The flex container becomes flexible 
-*/
-nav {
-  display: flex;
-  justify-content: end;
-  /*text-align: right;*/
-  background-color: #d8a47f;
-}
-
-nav a {
-  padding: 14px 20px;
-  text-decoration: none;
-  /*text-align: center; */
-  text-align: right;
-  color: #13293d;
-}
-.contact-content {
-  display: flex;
-  justify-content: space-evenly;
-  /*text-align: right;*/
-  background-color: #d8a47f;
-  a {
-    padding: 14px 20px;
-  text-decoration: none;
-  /*text-align: center; */
-  text-align: right;
-  color: #13293d;
-  }
-}
-/* 
-What is the flex-wrap property?
-It specifies whether the flex items should wrap or not 
-*/
-main {
-  display: flex;
-  /*flex-wrap: wrap;*/  /* removed flex-wrap and added (display: flex) as per Mark */
-}
-
-aside {
-  flex: 1 1 200px;
-  display: flex;                    /* added */
-  flex-direction: column;           /* added */
-  justify-content: space-between;    /* added */
-  text-align: center;
-  padding: 0 80px;
-  background-color: #b9c6ae;
-}
-
-footer {
-  display:flex;
-  padding: 20px;
-  /*text-align: center;*/
-  text-align: right;
-  width: 100%;                      /* added */
-  background: #13293d;
-  color: #fff;
-  ul {
-    display: flex;
-    list-style-type: none;
-    justify-content: space-between;
-    width: 100%;
-    a {
-      color:#fff;
-    }
-  }
-}
-
-/* 
-What does the justify-content property do?
-It is used to align the flex items; in our case, the product cards 
-*/
-.products {
+/* Align the flex items using justify-content */
+.content-cards {
   display: flex;
   flex-wrap: wrap;
-  flex:auto;
+  flex: auto;
   justify-content: center;
   padding: 20px;
   background-color: #fff;
 }
 
-/* 
-What is the flex property a shorthand property for?
-It is a shorthand property for the flex-grow, flex-shrink, and flex-basis properties 
-What is it doing here?
-We are making the product card not growable, not shrinkable, and with an initial length of 400px 
-*/
-
-/*.personal-info {
-  display: flex;
-  flex-wrap: wrap;
-  flex:auto;
-  justify-content: center;
-  padding: 20px;
-  background-color: #fff;
-}
-
-.about {
-  border-style: solid;
-  border-width: 1px;
-  border-radius: 10px;
-  padding: 10px; 
-  /*width: 50%;  <-- close comment    
-  width: 100%;      
-} */
-
-/*.about {              
-  width:100%
-}*/
-
-
+/* Style all cards as below */
 .card {
   border-style: solid;
   border-width: 1px;
   border-radius: 10px;
   padding: 10px;
-  /*flex: 0 0 400px;*/    /* Removed as per Mark */
-  width: 50%;             /* Added as per Mark */
-}
-
-.about {               /* Added as per Mark */
-  width:100%
-}
-
-.featured {               /* Added as per Mark */
-  width:100%
-}
-
-.contact {               /* Added as per Mark */
-  width:100%
+  width: 50%;             
 }
 
 .card header {
@@ -173,16 +83,78 @@ We are making the product card not growable, not shrinkable, and with an initial
   width: 100%;
 }
 
-/*#Marketing {
-  flex: 1 0 0;        --> Removed as per Mark
-}*/
+/* Style and highlight the paragraph under each work related card */
+.featured p {
+  color:darkslategray;
+  text-shadow: 2px 2px darkgray;
+  background-color:lightgray;
+}
+.chess p {
+  color:darkslategray;
+  text-shadow: 2px 2px darkgray;
+  background-color:lightgray;
+}
 
-/* 
-What does the flex-direction property define?
-It defines in which direction the container wants to stack the flex items
-What is it doing here? 
-We are telling the main body and navbar to stack vertically in a column
-*/
+.calculator p {
+  color:darkslategray;
+  text-shadow: 2px 2px darkgray;
+  background-color:lightgray;
+}
+
+.iot p {
+  color:darkslategray;
+  text-shadow: 2px 2px darkgray;
+  background-color:lightgray;
+}
+
+.weather p {
+  color:darkslategray;
+  text-shadow: 2px 2px darkgray;
+  background-color:lightgray;
+}
+
+.about {
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 10px;
+  padding: 10px; 
+  width:100%    
+} 
+
+.featured {              
+  width:100%
+}
+
+.contact {              
+  width:100%
+}
+
+.contact-content {
+  display: flex;
+  justify-content: space-evenly;
+  background-color: #d8a47f;
+  a {
+    padding: 14px 20px;
+  text-decoration: none;
+  text-align: right;
+  color: #13293d;
+  }
+}
+
+/* Style the guiding aside on the left of screen */
+aside {
+  flex: 1 1 200px;
+  display: flex;                    
+  flex-direction: column;           
+  justify-content: space-between;    
+  text-align: right;
+  font-size: large;
+  Padding: 0 10px 0 100px;
+  border-right: 2px solid #13293d;  
+  background-color: #b9c6ae;
+}
+
+/* Stack the main body and navbar vertically */
 @media screen and (max-width: 768px) {
   main,
   nav {
